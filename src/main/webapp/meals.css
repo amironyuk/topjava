@@ -1,0 +1,11 @@
+table tr th, td {
+    padding: 0.5em;
+}
+
+table tr td {
+    color: #008052;
+}
+
+table tr.excess td {
+    color: #FF55A5;
+}
