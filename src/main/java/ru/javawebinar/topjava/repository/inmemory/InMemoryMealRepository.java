@@ -2,6 +2,7 @@ package ru.javawebinar.topjava.repository.inmemory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.util.MealsUtil;
@@ -19,6 +20,7 @@ import static java.util.stream.Collectors.toList;
 import static ru.javawebinar.topjava.util.DateTimeUtil.isBetween;
 import static ru.javawebinar.topjava.util.DateTimeUtil.isBetweenHalfOpen;
 
+@Repository
 public class InMemoryMealRepository implements MealRepository {
     private static final Logger log = LoggerFactory.getLogger(InMemoryMealRepository.class);
 
