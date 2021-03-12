@@ -7,13 +7,13 @@ import java.time.LocalTime;
 import java.util.List;
 
 public interface MealRepository {
-    // null if updated meal do not belong to userId
+    // null if updated meal does not belong to user or not found when updated
     Meal save(Meal meal, int userId);
 
-    // false if meal do not belong to userId
+    // false if meal does not belong to user or not found
     boolean delete(int id, int userId);
 
-    // null if meal do not belong to userId
+    // null if meal does not belong to user or not found
     Meal get(int id, int userId);
 
     // ORDERED dateTime desc
