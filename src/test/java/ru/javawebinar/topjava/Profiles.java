@@ -28,10 +28,31 @@ public class Profiles {
     }
 
     //http://stackoverflow.com/questions/23871255/spring-profiles-simple-example-of-activeprofilesresolver
-    public static class ActiveProfilesResolver implements org.springframework.test.context.ActiveProfilesResolver {
+    public static class ActiveDbProfileResolver implements ActiveProfilesResolver {
         @Override
         public @NonNull String[] resolve(@NonNull Class<?> aClass) {
-            return new String[] {getActiveDbProfile(), REPOSITORY_IMPLEMENTATION};
+            return new String[] {getActiveDbProfile()};
+        }
+    }
+
+    public static class JdbcResolver implements ActiveProfilesResolver {
+        @Override
+        public @NonNull String[] resolve(@NonNull Class<?> aClass) {
+            return new String[] {getActiveDbProfile(), JDBC};
+        }
+    }
+
+    public static class JpaResolver implements ActiveProfilesResolver {
+        @Override
+        public @NonNull String[] resolve(@NonNull Class<?> aClass) {
+            return new String[] {getActiveDbProfile(), JPA};
+        }
+    }
+
+    public static class DataJpaResolver implements ActiveProfilesResolver {
+        @Override
+        public @NonNull String[] resolve(@NonNull Class<?> aClass) {
+            return new String[] {getActiveDbProfile(), DATAJPA};
         }
     }
 }
